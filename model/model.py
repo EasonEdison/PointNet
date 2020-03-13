@@ -183,6 +183,7 @@ class Segment(nn.Module):
         num_points = x.size()[2]
         x, trans_point, trans_feature = self.base_feature(x)
         # 卷积的通道要放在第几个位置？难道是根据维度自动寻找的？
+        # 答：并不能自动寻找
         x = F.relu(self.bn1(self.conv1(x)))
         x = F.relu(self.bn2(self.conv2(x)))
         x = F.relu(self.bn3(self.conv3(x)))
